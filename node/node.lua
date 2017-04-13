@@ -51,6 +51,6 @@ function node.render()
     local num_keys = table.getn(data.keys)
     for key_idx = 1, num_keys do
         local key_info = data.keys[key_idx]
-        draw_key(data.meta, {descender=data.descender, key_width=data.width}, key_info.x, key_info.y) --TODO labels
+        draw_key(data.meta, {descender=key_info.descender, key_width=key_info.width}, key_info.x, key_info.y) --TODO labels
     end
 end
