@@ -3,6 +3,7 @@
 import asyncio
 import basedir
 import evdev
+import json
 
 import info_beamer_keyboard
 
