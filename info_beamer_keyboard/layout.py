@@ -34,7 +34,7 @@ class Layout:
             y += 1
         self.num_rows = y
 
-    def __eq__(self):
+    def __eq__(self, other):
         if not isinstance(other, Layout):
             return False
         return self.rows == other.rows
