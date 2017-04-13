@@ -42,6 +42,12 @@ function draw_key(keyboard_options, key_options, x, y, text_upper, text_lower, t
 end
 
 function node.render()
+    if data.keys == nil then
+        gl.clear(1, 0, 0, 1)
+        local text_width = dejavu_sans:width("?", 200)
+        dejavu_sans:write((WIDTH - text_width) / 2, (HEIGHT - 200_ / 2, "?", 200, 1, 1, 1, 1)
+        return
+    end
     local num_keys = table.getn(data.keys)
     for key_idx = 1, num_keys do
         local key_info = data.keys[key_idx]
