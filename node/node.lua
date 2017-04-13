@@ -45,7 +45,7 @@ function node.render()
     if data.keys == nil then
         gl.clear(1, 0, 0, 1)
         local text_width = dejavu_sans:width("?", 200)
-        dejavu_sans:write((WIDTH - text_width) / 2, (HEIGHT - 200_ / 2, "?", 200, 1, 1, 1, 1)
+        dejavu_sans:write((WIDTH - text_width) / 2, (HEIGHT - 200) / 2, "?", 200, 1, 1, 1, 1)
         return
     end
     local num_keys = table.getn(data.keys)
