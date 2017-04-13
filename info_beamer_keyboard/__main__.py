@@ -42,6 +42,7 @@ def main():
     while True:
         yield from handle_events(devices)
         for did, future in devices.items():
+            last_state = state
             if not isinstance(future, tuple):
                 continue
             device, event = future
@@ -49,7 +50,8 @@ def main():
             if event.type != evdev.ecodes.EV_KEY:
                 continue
             state = state.with_event(device, event)
-            dump_state(state)
+            if state != last_state:
+                dump_state(state)
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()

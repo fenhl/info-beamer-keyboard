@@ -34,6 +34,11 @@ class Layout:
             y += 1
         self.num_rows = y
 
+    def __eq__(self):
+        if not isinstance(other, Layout):
+            return False
+        return self.rows == other.rows
+
     def __iter__(self):
         for row in self.rows:
             for key in row:

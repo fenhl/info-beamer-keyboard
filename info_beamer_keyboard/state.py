@@ -11,6 +11,11 @@ class State:
         result.pressed = self.pressed.copy()
         return result
 
+    def __eq__(self, other):
+        if not isinstance(other, State):
+            return False
+        return self.layout == other.layout and self.pressed == other.pressed
+
     def copy(self):
         return copy.copy(self)
 
