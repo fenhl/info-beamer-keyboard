@@ -7,6 +7,9 @@ import json
 
 import info_beamer_keyboard
 
+def device_id(device):
+    return device.fn
+
 def dump_state(state):
     with open('node/data.json', 'w') as data_f:
         json.dump(state.to_json(), data_f, indent=4, sort_keys=True)
