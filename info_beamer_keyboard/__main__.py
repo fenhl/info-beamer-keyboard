@@ -28,7 +28,7 @@ def handle_events(devices):
 
 @asyncio.coroutine
 def main():
-    layout = info_beamer_keyboard.Layout(basedir.config_dirs('fenhl/keylayout.json').json(readable_only=True))
+    layout = info_beamer_keyboard.Layout(basedir.config_dirs('fenhl/keylayout.json').json())
     state = info_beamer_keyboard.State(layout)
     dump_state(state)
     devices = {
