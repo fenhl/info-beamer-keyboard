@@ -1,4 +1,5 @@
-node/dejavu_sans.ttf
+/node/data.json
+/node/dejavu_sans.ttf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
