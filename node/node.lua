@@ -27,7 +27,7 @@ function draw_key(keyboard_options, key_options, x, y, text_upper, text_lower, t
     if key_options.pressed then
         color = resource.create_colored_texture(0, 1, 1, 1)
     else
-        resource.create_colored_texture(1, 1, 1, 1)
+        color = resource.create_colored_texture(1, 1, 1, 1)
     end
     color:draw(screen_x + 1, screen_y + 1, screen_x + (key_width * key_size) - 1, screen_y + key_size - 1)
     if key_options.descender then
