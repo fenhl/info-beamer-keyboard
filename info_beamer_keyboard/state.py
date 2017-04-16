@@ -19,11 +19,6 @@ class State:
     def copy(self):
         return copy.copy(self)
 
-    def dump(self):
-        with open('data.json', 'w') as data_f:
-            json.dump(self.to_json(), data_f, indent=4, sort_keys=True)
-            print(file=data_f) # add trailing newline
-
     def to_json(self):
         result = []
         for key in self.layout:
