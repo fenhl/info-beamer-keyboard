@@ -23,9 +23,15 @@ function draw_key(keyboard_options, key_options, x, y, text_upper, text_lower, t
     end
     local screen_x = (WIDTH - key_size * row_width) / 2 + key_size * x
     local screen_y = (HEIGHT - key_size * num_rows) / 2 + key_size * y
-    resource.create_colored_texture(1, 1, 1, 1):draw(screen_x + 1, screen_y + 1, screen_x + (key_width * key_size) - 1, screen_y + key_size - 1)
+    local color
+    if key_options.pressed then
+        color = resource.create_colored_texture(0, 1, 1, 1)
+    else
+        resource.create_colored_texture(1, 1, 1, 1)
+    end
+    color:draw(screen_x + 1, screen_y + 1, screen_x + (key_width * key_size) - 1, screen_y + key_size - 1)
     if key_options.descender then
-        resource.create_colored_texture(1, 1, 1, 1):draw(screen_x + key_size * (key_width - 1) + 1, screen_y + key_size - 1, screen_x + (key_width * key_size) - 1, screen_y + (2 * key_size) - 1)
+        color:draw(screen_x + key_size * (key_width - 1) + 1, screen_y + key_size - 1, screen_x + (key_width * key_size) - 1, screen_y + (2 * key_size) - 1)
     end
     if text_upper ~= nil then
         dejavu_sans:write(screen_x + 1, screen_y + 1, text_upper, key_size / 2 - 1, 0, 0, 0, 1)
@@ -51,6 +57,6 @@ function node.render()
     local num_keys = table.getn(data.keys)
     for key_idx = 1, num_keys do
         local key_info = data.keys[key_idx]
-        draw_key(data.meta, {descender=key_info.descender, key_width=key_info.width}, key_info.x, key_info.y) --TODO labels
+        draw_key(data.meta, {descender=key_info.descender, key_width=key_info.width, pressed=key_info.pressed}, key_info.x, key_info.y) --TODO labels
     end
 end
